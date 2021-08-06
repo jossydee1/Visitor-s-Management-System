@@ -2,17 +2,122 @@ import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "./Home.css";
+
+const Feed = ({ text }) => {
+	return <div>{text}</div>;
+};
+
 function Home() {
+	const [input1, setInput1] = useState("");
+	const [text1, setText1] = useState([]);
+
+	const [input2, setInput2] = useState("");
+	const [text2, setText2] = useState([]);
+
+	const [input3, setInput3] = useState("");
+	const [text3, setText3] = useState([]);
+
+	const [input4, setInput4] = useState("");
+	const [text4, setText4] = useState([]);
+
+	const [input5, setInput5] = useState("");
+	const [text5, setText5] = useState([]);
+
+	const [input6, setInput6] = useState("");
+	const [text6, setText6] = useState([]);
+
+	const [input7, setInput7] = useState("");
+	const [text7, setText7] = useState([]);
+
+	const [input8, setInput8] = useState("");
+	const [text8, setText8] = useState([]);
+
+	const [input9, setInput9] = useState("");
+	const [text9, setText9] = useState([]);
+
+	const [input10, setInput10] = useState("");
+	const [text10, setText10] = useState([]);
+
+	const [input11, setInput11] = useState("");
+	const [text11, setText11] = useState([]);
+
+	const [input12, setInput12] = useState("");
+	const [text12, setText12] = useState([]);
+
+	const [input13, setInput13] = useState("");
+	const [text13, setText13] = useState([]);
+
+	const [input14, setInput14] = useState("");
+	const [text14, setText14] = useState([]);
+
+	const [input15, setInput15] = useState("");
+	const [text15, setText15] = useState([]);
+
+	const [input16, setInput16] = useState("");
+	const [text16, setText16] = useState([]);
+
 	const [inDate, setInDate] = useState(new Date());
+	const [text17, setText17] = useState([]);
+
 	const [outDate, setOutDate] = useState(new Date());
-	const [input, setInput] = useState("");
-	const [text, setText] = useState([]);
+	const [text18, setText18] = useState([]);
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
 
-		setText([input, ...text]);
-		setInput("");
+		setText1([input1, ...text1]);
+		setInput1("");
+
+		setText2([input2, ...text2]);
+		setInput2("");
+
+		setText3([input3, ...text3]);
+		setInput3("");
+
+		setText4([input4, ...text4]);
+		setInput4("");
+
+		setText5([input5, ...text5]);
+		setInput5("");
+
+		setText6([input6, ...text6]);
+		setInput6("");
+
+		setText7([input7, ...text7]);
+		setInput7("");
+
+		setText8([input8, ...text8]);
+		setInput8("");
+
+		setText9([input9, ...text9]);
+		setInput9("");
+
+		setText10([input10, ...text10]);
+		setInput10("");
+
+		setText11([input11, ...text11]);
+		setInput11("");
+
+		setText12([input12, ...text12]);
+		setInput12("");
+
+		setText13([input13, ...text13]);
+		setInput13("");
+
+		setText14([input14, ...text14]);
+		setInput14("");
+
+		setText15([input15, ...text15]);
+		setInput15("");
+
+		setText16([input16, ...text16]);
+		setInput16("");
+
+		setText17([inDate, ...text17]);
+		setInDate("");
+
+		setText18([outDate, ...text18]);
+		setOutDate("");
 	};
 
 	return (
@@ -26,8 +131,8 @@ function Home() {
 						First Name:
 						<input
 							type="text"
-							value={input}
-							onChange={(e) => setInput(e.target.value)}
+							value={input1}
+							onChange={(e) => setInput1(e.target.value)}
 						/>
 					</label>
 					<br />
@@ -37,8 +142,8 @@ function Home() {
 						<input
 							name="last"
 							type="text"
-							value={input}
-							onChange={(e) => setInput(e.target.value)}
+							value={input2}
+							onChange={(e) => setInput2(e.target.value)}
 						/>
 					</label>
 					<br />
@@ -47,8 +152,8 @@ function Home() {
 						Phone No:
 						<input
 							type="number"
-							value={input}
-							onChange={(e) => setInput(e.target.value)}
+							value={input3}
+							onChange={(e) => setInput3(e.target.value)}
 						/>
 					</label>
 					<br />
@@ -57,8 +162,8 @@ function Home() {
 						Email:
 						<input
 							type="email"
-							value={input}
-							onChange={(e) => setInput(e.target.value)}
+							value={input4}
+							onChange={(e) => setInput4(e.target.value)}
 						/>
 					</label>
 					<br />
@@ -69,8 +174,8 @@ function Home() {
 						Contact Person:
 						<input
 							type="text"
-							value={input}
-							onChange={(e) => setInput(e.target.value)}
+							value={input5}
+							onChange={(e) => setInput5(e.target.value)}
 						/>
 					</label>
 					<br />
@@ -78,8 +183,8 @@ function Home() {
 						Department:
 						<input
 							type="text"
-							value={input}
-							onChange={(e) => setInput(e.target.value)}
+							value={input6}
+							onChange={(e) => setInput6(e.target.value)}
 						/>
 					</label>
 					<br />
@@ -87,8 +192,8 @@ function Home() {
 						Purpose:
 						<input
 							type="text"
-							value={input}
-							onChange={(e) => setInput(e.target.value)}
+							value={input7}
+							onChange={(e) => setInput7(e.target.value)}
 						/>
 					</label>
 					<br />
@@ -98,15 +203,15 @@ function Home() {
 						<input
 							name="Appointment"
 							type="radio"
-							value={input}
-							onChange={(e) => setInput(e.target.value)}
+							value={input8}
+							onChange={(e) => setInput8(e.target.value)}
 						/>{" "}
 						No{" "}
 						<input
 							name="Appointment"
 							type="radio"
-							value={input}
-							onChange={(e) => setInput(e.target.value)}
+							value={input9}
+							onChange={(e) => setInput9(e.target.value)}
 						/>
 					</label>
 					<br />
@@ -117,8 +222,8 @@ function Home() {
 						Company Name:
 						<input
 							type="text"
-							value={input}
-							onChange={(e) => setInput(e.target.value)}
+							value={input10}
+							onChange={(e) => setInput10(e.target.value)}
 						/>
 					</label>
 					<br />
@@ -127,8 +232,8 @@ function Home() {
 						Address:
 						<input
 							type="text"
-							value={input}
-							onChange={(e) => setInput(e.target.value)}
+							value={input11}
+							onChange={(e) => setInput11(e.target.value)}
 						/>
 					</label>
 					<br />
@@ -137,8 +242,8 @@ function Home() {
 						Tel. No:
 						<input
 							type="number"
-							value={input}
-							onChange={(e) => setInput(e.target.value)}
+							value={input12}
+							onChange={(e) => setInput12(e.target.value)}
 						/>
 					</label>
 					<br />
@@ -150,15 +255,15 @@ function Home() {
 						<input
 							name="object"
 							type="radio"
-							value={input}
-							onChange={(e) => setInput(e.target.value)}
+							value={input13}
+							onChange={(e) => setInput13(e.target.value)}
 						/>{" "}
 						No{" "}
 						<input
 							name="object"
 							type="radio"
-							value={input}
-							onChange={(e) => setInput(e.target.value)}
+							value={input14}
+							onChange={(e) => setInput14(e.target.value)}
 						/>
 					</label>
 					<br />
@@ -167,8 +272,8 @@ function Home() {
 						Vehicle No:
 						<input
 							type="text"
-							value={input}
-							onChange={(e) => setInput(e.target.value)}
+							value={input15}
+							onChange={(e) => setInput15(e.target.value)}
 						/>
 					</label>
 					<br />
@@ -177,8 +282,8 @@ function Home() {
 						Driver's Name:
 						<input
 							type="text"
-							value={input}
-							onChange={(e) => setInput(e.target.value)}
+							value={input16}
+							onChange={(e) => setInput16(e.target.value)}
 						/>
 					</label>
 					<br />
@@ -211,7 +316,14 @@ function Home() {
 					</label>
 					<br />
 				</div>
+				<button onClick={handleSubmit}>Submit</button>
 			</form>
+
+			<div>
+				{text3.map((item) => (
+					<Feed text={item} />
+				))}
+			</div>
 		</div>
 	);
 }
