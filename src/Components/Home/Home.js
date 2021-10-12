@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "./Home.css";
+import Axios from "axios";
 
 const Feed = ({ text }) => {
 	return <div>{text}</div>;
 };
 
-function Home() {
+function Home(type, userData) {
 	const [input1, setInput1] = useState("");
 	const [text1, setText1] = useState([]);
 
@@ -118,6 +119,14 @@ function Home() {
 
 		setText18([outDate, ...text18]);
 		setOutDate("");
+
+		Axios.post("http://localhost:3001/api/insert", {
+			firstName: input1,
+			lastName: input2,
+		}).then(() => {
+			// alert("success");
+			console.log("Successsss");
+		});
 	};
 
 	return (
@@ -132,6 +141,7 @@ function Home() {
 						<input
 							type="text"
 							value={input1}
+							name="firstName"
 							onChange={(e) => setInput1(e.target.value)}
 						/>
 					</label>
@@ -198,7 +208,7 @@ function Home() {
 					</label>
 					<br />
 
-					<label for="Appointment">
+					<label htmlfor="Appointment">
 						On Appointment: Yes{" "}
 						<input
 							name="Appointment"
@@ -320,7 +330,7 @@ function Home() {
 			</form>
 
 			<div>
-				{text3.map((item) => (
+				{text8.map((item) => (
 					<Feed text={item} />
 				))}
 			</div>
