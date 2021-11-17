@@ -1,22 +1,27 @@
 import React, { useEffect, useState } from "react";
-import "./AllData.css";
+import "react-datepicker/dist/react-datepicker.css";
+// import "./FetchByName.css";
 import ReactHTMLTableToExcel from "react-html-table-to-excel";
-import { Link } from "react-router-dom";
-import "font-awesome/css/font-awesome.min.css";
 
-//For getting data from the database
+function FetchByEmail() {
+	const [search, setSearch] = useState("");
 
-const AllData = () => {
 	const [item, setItem] = useState([]);
 	useEffect(() => {
 		fetch("http://10.1.0.85/testing/api.php")
 			.then((res) => res.json())
-			.then((result) => {
-				setItem(result);
+			.then((json) => {
+				setItem(json);
 			});
 	}, []);
+
 	return (
 		<div>
+			<input
+				type="email"
+				placeholder="Search Email"
+				onChange={(e) => setSearch(e.target.value)}
+			/>
 			<ReactHTMLTableToExcel
 				id="test-table-xls-button"
 				className="export__all"
@@ -47,42 +52,46 @@ const AllData = () => {
 							<th style={{ maxWidth: "40px" }}>Obj</th>
 							<th style={{ maxWidth: "120px" }}>Time In</th>
 							<th style={{ maxWidth: "120px" }}>Time Out</th>
-							<th style={{ maxWidth: "50px" }}>A</th>
 						</tr>
 					</thead>
 					<tbody className="table__body">
-						{item.map((data) => (
-							<tr key={data.id}>
-								<td>{data.id}</td>
-								<td>{data.firstName}</td>
-								<td>{data.lastName}</td>
-								<td>{data.phoneNumber}</td>
-								<td>{data.email}</td>
-								<td>{data.contactPerson}</td>
-								<td>{data.department}</td>
-								<td>{data.purpose}</td>
-								<td>{data.companyName}</td>
-								<td>{data.address}</td>
-								<td>{data.telNumber}</td>
-								<td>{data.vehicleNumber}</td>
-								<td>{data.driverName}</td>
-								<td>{data.cardNumber}</td>
-								<td>{data.onAppointment}</td>
-								<td>{data.carryingObject}</td>
-								<td>{data.timeIn}</td>
-								<td>{data.timeOut}</td>
-								<td>
-									<Link to={"/vms/timeOut/" + data.id}>
-										<i className="fa fa-edit" area-hidden="true"></i>
-									</Link>
-								</td>
-							</tr>
-						))}
+						{item
+							.filter((data) => {
+								if (search == "") {
+									return;
+								} else if (
+									data.email?.toLowerCase().includes(search.toLowerCase())
+								) {
+									return data;
+								}
+							})
+							.map((data) => (
+								<tr key={data.id}>
+									<td>{data.id}</td>
+									<td>{data.firstName}</td>
+									<td>{data.lastName}</td>
+									<td>{data.phoneNumber}</td>
+									<td>{data.email}</td>
+									<td>{data.contactPerson}</td>
+									<td>{data.department}</td>
+									<td>{data.purpose}</td>
+									<td>{data.companyName}</td>
+									<td>{data.address}</td>
+									<td>{data.telNumber}</td>
+									<td>{data.vehicleNumber}</td>
+									<td>{data.driverName}</td>
+									<td>{data.cardNumber}</td>
+									<td>{data.onAppointment}</td>
+									<td>{data.carryingObject}</td>
+									<td>{data.timeIn}</td>
+									<td>{data.timeOut}</td>
+								</tr>
+							))}
 					</tbody>
 				</table>
 			</div>
 		</div>
 	);
-};
+}
 
-export default AllData;
+export default FetchByEmail;

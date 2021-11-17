@@ -6,7 +6,7 @@ import "./Data.css";
 const Data = () => {
 	const [item, setItem] = useState([]);
 	useEffect(() => {
-		fetch("http://localhost:3001/api/get")
+		fetch("http://localhost/testing/api.php")
 			.then((res) => res.json())
 			.then((result) => {
 				setItem(result);
@@ -43,9 +43,20 @@ const Data = () => {
 								<td>{data.id}</td>
 								<td>{data.firstName}</td>
 								<td>{data.lastName}</td>
-								<td>{data.phone_number}</td>
+								<td>{data.phoneNumber}</td>
 								<td>{data.email}</td>
-								<td>{data.contact_person}</td>
+								<td>{data.contactPerson}</td>
+								<td>{data.department}</td>
+								<td>{data.purpose}</td>
+								<td>{data.onAppointment}</td>
+								<td>{data.companyName}</td>
+								<td>{data.address}</td>
+								<td>{data.telNumber}</td>
+								<td>{data.carryingObject}</td>
+								<td>{data.vehicleNumber}</td>
+								<td>{data.driverName}</td>
+								<td>{data.timeIn}</td>
+								<td>{data.timeOut}</td>
 							</tr>
 						))}
 					</tbody>

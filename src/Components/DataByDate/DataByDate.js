@@ -1,20 +1,24 @@
 import React, { useEffect, useState } from "react";
-import "./AllData.css";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+// import "./FetchByDate.css";
+import Axios from "axios";
 import ReactHTMLTableToExcel from "react-html-table-to-excel";
-import { Link } from "react-router-dom";
-import "font-awesome/css/font-awesome.min.css";
 
-//For getting data from the database
+const Feed = ({ text }) => {
+	return <div>{text}</div>;
+};
 
-const AllData = () => {
+function FetchByDate() {
 	const [item, setItem] = useState([]);
 	useEffect(() => {
-		fetch("http://10.1.0.85/testing/api.php")
+		fetch("http://localhost/testing/fetchByDate.php")
 			.then((res) => res.json())
 			.then((result) => {
 				setItem(result);
 			});
 	}, []);
+
 	return (
 		<div>
 			<ReactHTMLTableToExcel
@@ -47,7 +51,6 @@ const AllData = () => {
 							<th style={{ maxWidth: "40px" }}>Obj</th>
 							<th style={{ maxWidth: "120px" }}>Time In</th>
 							<th style={{ maxWidth: "120px" }}>Time Out</th>
-							<th style={{ maxWidth: "50px" }}>A</th>
 						</tr>
 					</thead>
 					<tbody className="table__body">
@@ -71,18 +74,19 @@ const AllData = () => {
 								<td>{data.carryingObject}</td>
 								<td>{data.timeIn}</td>
 								<td>{data.timeOut}</td>
-								<td>
-									<Link to={"/vms/timeOut/" + data.id}>
-										<i className="fa fa-edit" area-hidden="true"></i>
-									</Link>
-								</td>
 							</tr>
 						))}
 					</tbody>
 				</table>
 			</div>
+
+			{/* <div>
+				{text1.map((item) => (
+					<Feed text={item} />
+				))}
+			</div> */}
 		</div>
 	);
-};
+}
 
-export default AllData;
+export default FetchByDate;
