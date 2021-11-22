@@ -71,7 +71,7 @@ export default class Edit extends Component {
 		const { redirect } = this.state;
 
 		if (redirect) {
-			return <Redirect to="/vms/all" />;
+			return <Redirect to="/vms/" />;
 		}
 		return (
 			<div>
